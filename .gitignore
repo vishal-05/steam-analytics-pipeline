@@ -1,0 +1,9 @@
+.env
+bronze/
+silver/
+gold/
+warehouse/
+logs/
+__pycache__/
+*.pyc
+.DS_Store
