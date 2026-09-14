@@ -24,6 +24,7 @@ with DAG(
     start_date=datetime(2026, 9, 1),
     schedule="@daily",
     catchup=False,
+    max_active_runs=1,
     tags=["steam", "portfolio"],
 ) as dag:
 
