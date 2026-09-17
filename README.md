@@ -65,28 +65,6 @@ Power BI — dashboards and visualizations
 - Tasks are chained with explicit dependencies: ingestion → Bronze landing → Silver transform → Gold build → star schema build.
 - Each task has retry logic (3 retries, 5-minute delay) to handle transient API failures.
 
-## Running it locally
-
-**Prerequisites:** Docker Desktop, Python 3.x
-
-```bash
-git clone https://github.com/<your-username>/steam-analytics-pipeline.git
-cd steam-analytics-pipeline
-docker compose up airflow-init
-docker compose up -d
-```
-
-Airflow UI: `http://localhost:8080` (default credentials: `airflow` / `airflow`)
-
-Enable and trigger `steam_pipeline_dag` from the UI to run the full pipeline.
-
-## Exporting to Power BI
-
-```bash
-python scripts/export_gold_to_csv.py
-```
-
-This reads the star schema tables from SQLite and writes them to `warehouse/gold/` as CSVs, ready to load into Power BI Desktop via **Get Data → Text/CSV**. Relationships are built on `game_key`, `date_key`, and `publisher_key`.
 
 ## Project structure
 
